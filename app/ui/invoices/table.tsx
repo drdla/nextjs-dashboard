@@ -11,7 +11,8 @@ export default async function InvoicesTable({
   query: string;
   currentPage: number;
 }) {
-  const invoices = await fetchFilteredInvoices(query, currentPage);
+  const pageNumber = Math.max(currentPage, 1);
+  const invoices = await fetchFilteredInvoices(query, pageNumber);
 
   return (
     <div className="mt-6 flow-root">
