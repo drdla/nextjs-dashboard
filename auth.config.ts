@@ -10,14 +10,14 @@ export const authConfig = {
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
 
       if (isOnDashboard) {
-        return isLoggedIn;
+        return isLoggedIn; // Redirect unauthenticated users to login page
       }
 
       if (isLoggedIn) {
         return Response.redirect(new URL('/dashboard', nextUrl));
       }
 
-      return false;
+      return true;
     },
   },
   providers: [], // Add providers with an empty array for now
